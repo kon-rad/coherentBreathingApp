@@ -23,7 +23,7 @@ class Breathe extends Component {
   }
 
   updateTime(e) {
-    this.setState({ timeSet: e.target.value });
+    this.setState({ timeSet: e.target.value, currentTime: e.target.value });
   }
   toggleTime() {
     this.state.active ? this.endTimer() : this.startTimer();
@@ -58,7 +58,7 @@ class Breathe extends Component {
     seconds = seconds < 10 ? '0' + seconds : seconds;
 
     return (
-      <div>
+      <div className="breathe__time_render">
         {minutes} : {seconds}
       </div>
     )
@@ -68,14 +68,14 @@ class Breathe extends Component {
     return (
       <div className="container">
         <div className="breathe__inner">
-          <div className="breathe__time_view">
+          <div className="breathe__time">
             {this.renderTime()}
           </div>
           <div className="breathe__time_set">
             <input value={this.state.timeSet} onChange={this.updateTime} type="range" min="0" max={20 * 60 * 1000} step={60 * 1000} />
         </div>
           <div className="breathe__start">
-            <button onClick={this.toggleTime}><i className="small material-icons">spa</i>{this.state.active ? 'Stop' : 'Start'}</button>
+            <button onClick={this.toggleTime}><i className="small material-icons">spa</i><span>{this.state.active ? 'Stop' : 'Start'}</span></button>
           </div>
           <div className="breathe__center">
             <div className={this.isActive()}>
