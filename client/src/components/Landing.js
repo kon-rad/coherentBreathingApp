@@ -11,7 +11,9 @@ export default () => {
         practice slowly, starting with inhaling and exhaling to the count of three and working your way up to six.
       </p>
       <ul>
-        <li>1. Sitting upright or lying down, place your hands on your belly.</li>
+        <li>
+          1. Sitting upright or lying down, place your hands on your belly.
+        </li>
         <li>
           2. Slowly breathe in, expanding your belly, to the count of five.
         </li>
@@ -21,7 +23,9 @@ export default () => {
         <li>
           4. Slowly breathe out to the count of six.
         </li>
-        <li>5. Work your way up to practicing this pattern for 10 to 20 minutes a day.</li>
+        <li>
+          5. Work your way up to practicing this pattern for 10 to 20 minutes a day.
+        </li>
       </ul>
     </div>
   )
