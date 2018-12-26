@@ -25,11 +25,13 @@
     display: block;
     margin: 0 auto;
     border-radius: 50%;
+    transition: height 2s, width 2s;
 }
 .breathe.active {
     animation-name: breathe;
     animation-duration: 10s;
     animation-iteration-count: infinite;
+    transition: height 2s, width 2s;
 }
 @keyframes breathe {
     0%   {
@@ -68,4 +70,15 @@
 }
 .breathe__start button:hover {
     cursor: pointer;
+}
+@media (max-width: 768px) {
+    .breathe__time_render {
+        width: 209px;
+        margin: 0 auto;
+        text-align: center;
+        font-size: 30px;
+    }
+    .breathe__center {
+        height: 300px;
+    }
 }

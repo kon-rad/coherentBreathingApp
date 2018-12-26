@@ -39,13 +39,15 @@ class Breathe extends Component {
   }
   endTimer() {
     clearInterval(this.state.timerInterval);
-    this.setState({ timerInterval: null, active: false });
+    this.setState({ timerInterval: null, active: false, currentTime: 0 });
   }
   tick() {
-    this.setState(
-      { currentTime: this.state.currentTime -= 1000 },
-      () => (this.currentTime <= 0) && this.endTimer()
-    );
+    if (this.state.currentTime <= 0) {
+      this.endTimer();
+
+      return;
+    }
+    this.setState({ currentTime: this.state.currentTime -= 1000 });
   }
   renderTime() {
     let time = this.state.timeSet;
@@ -66,21 +68,19 @@ class Breathe extends Component {
 
   render () {
     return (
-      <div className="container">
-        <div className="breathe__inner">
-          <div className="breathe__time">
-            {this.renderTime()}
-          </div>
-          <div className="breathe__time_set">
-            <input value={this.state.timeSet} onChange={this.updateTime} type="range" min="0" max={20 * 60 * 1000} step={60 * 1000} />
+      <div className="breathe__inner">
+        <div className="breathe__time">
+          {this.renderTime()}
         </div>
-          <div className="breathe__start">
-            <button onClick={this.toggleTime}><i className="small material-icons">spa</i><span>{this.state.active ? 'Stop' : 'Start'}</span></button>
-          </div>
-          <div className="breathe__center">
-            <div className={this.isActive()}>
-              <div className="breathe__counter"></div>
-            </div>
+        <div className="breathe__time_set">
+          <input value={this.state.timeSet} onChange={this.updateTime} type="range" min="0" max={20 * 60 * 1000} step={60 * 1000} />
+      </div>
+        <div className="breathe__start">
+          <button onClick={this.toggleTime}><i className="small material-icons">spa</i><span>{this.state.active ? 'Stop' : 'Start'}</span></button>
+        </div>
+        <div className="breathe__center">
+          <div className={this.isActive()}>
+            <div className="breathe__counter"></div>
           </div>
         </div>
       </div>
