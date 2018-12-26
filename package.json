@@ -8,8 +8,8 @@
     "server": "nodemon index.js",
     "client": "npm run start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "clean": "rm -rf node_modules && npm install && yarn --prefix client",
-    "build": "yarn run build --prefix client",
+    "clean": "rm -rf node_modules && npm install && yarn --cwd client install",
+    "build": "yarn --cwd client build",
     "prod": " NODE_ENV=production node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
