@@ -47,7 +47,8 @@ class Breathe extends Component {
 
       return;
     }
-    this.setState({ currentTime: this.state.currentTime -= 1000 });
+    let currentTime = this.state.currentTime - 1000;
+    this.setState({ currentTime: currentTime });
   }
   renderTime() {
     let time = this.state.timeSet;
