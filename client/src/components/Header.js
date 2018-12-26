@@ -2,18 +2,17 @@ import React, { Component } from 'react';
 
 class Header extends Component {
   renderContent() {
-    console.log(this.props.auth);
-    switch (this.props.auth) {
-      case null:
-        return;
-      case undefined:
-        return <a href="/auth/google"><li>Login With Google</li></a>;
-      default:
-        return [
-          <li key="1">Settings</li>,
-          <li key="2"><a href="/api/logout">Logout</a></li>
-        ]
-    }
+    // switch (this.props.auth) {
+    //   case null:
+    //     return;
+    //   case undefined:
+    //     return <a href="/auth/google"><li>Login With Google</li></a>;
+    //   default:
+    //     return [
+    //       <li key="1">Settings</li>,
+    //       <li key="2"><a href="/api/logout">Logout</a></li>
+    //     ]
+    // }
   }
 
   render () {
