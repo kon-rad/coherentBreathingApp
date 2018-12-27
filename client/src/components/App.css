@@ -7,14 +7,8 @@
     --color5: rgba(226, 192, 68, 1);
     --color5-hover: #f9c506;
 }
-.body {
-    display: flex;
+#root {
     min-height: 100vh;
-    flex-direction: column;
-}
-
-main {
-    flex: 1 0 auto;
 }
 .nav__logo a i {
     display: inline-block;
@@ -33,13 +27,11 @@ main {
     display: block;
     margin: 0 auto;
     border-radius: 50%;
-    transition: height 2s, width 2s;
 }
 .breathe.active {
     animation-name: breathe;
-    animation-duration: 10s;
+    animation-duration: 12s;
     animation-iteration-count: infinite;
-    transition: height 2s, width 2s;
 }
 @keyframes breathe {
     0%   {

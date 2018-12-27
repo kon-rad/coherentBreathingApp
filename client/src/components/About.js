@@ -6,10 +6,9 @@ class About extends Component {
     return (
       <div className="container">
         <h1>What is Coherent Breathing?</h1>
-
         <p>
-          Coherent breathing is a very simple breathing technique of taking five to six breaths per minute.
-          It involves equal periods of inhalation and exhalation of roughly five seconds. The purpose of this
+          Coherent breathing is a very simple breathing technique of taking six breaths per minute.
+          It involves equal periods of inhalation and exhalation of six seconds. The purpose of this
           type of breathing is to increase mindfulness and decrease stress.
           Research has shown that coherent breathing can help a wide variety of problems from insomnia to anxiety.
         </p>

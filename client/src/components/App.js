@@ -1,4 +1,5 @@
-import React from 'react';
+import './App.css';
+import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
@@ -6,15 +7,24 @@ import Landing from './Landing';
 import Breathe from './Breathe';
 import About from './About';
 import RelevantLinks from './RelevantLinks';
-import './App.css';
+import { connect } from 'react-redux';
 
-const App = () => {
-  return (
-    <div>
+class App extends Component {
+  constructor(props) {
+    super(props);
+
+  }
+
+  render() {
+    const rootClass = this.props.app.darkTheme ? 'darkTheme' : '';
+    // const rootClass = 'darkTheme' ;
+    console.log('render App here. state: ', this.props);
+
+    return (
       <BrowserRouter>
-        <div>
+        <div className={rootClass}>
           <Header />
-          <div className="container body">
+          <div className="container">
             <Route exact path='/' component={Landing} />
             <Route exact path='/breathe' component={Breathe} />
             <Route exact path='/about' component={About} />
@@ -23,8 +33,13 @@ const App = () => {
           <Footer />
         </div>
       </BrowserRouter>
-    </div>
-  )
-};
+    )
+  }
+}
 
-export default App;
+function mapStateToProps(state) {
+  console.log(state, 'state');
+  return { app: state.app };
+}
+
+export default connect(mapStateToProps)(App);

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Settings from './Settings';
 
 const TICK_INTERVAL = 1000;
 
@@ -70,18 +71,21 @@ class Breathe extends Component {
   render () {
     return (
       <div className="breathe__inner">
-        <div className="breathe__time">
-          {this.renderTime()}
-        </div>
-        <div className="breathe__time_set">
-          <input value={this.state.timeSet} onChange={this.updateTime} type="range" min="0" max={20 * 60 * 1000} step={60 * 1000} />
-      </div>
-        <div className="breathe__start">
-          <button onClick={this.toggleTime}><i className="small material-icons">spa</i><span>{this.state.active ? 'Stop' : 'Start'}</span></button>
-        </div>
-        <div className="breathe__center">
+        <div className="row">
+          <Settings />
+          <div className="breathe__time">
+            {this.renderTime()}
+          </div>
+          <div className="breathe__time_set">
+            <input value={this.state.timeSet} onChange={this.updateTime} type="range" min="0" max={20 * 60 * 1000} step={60 * 1000} />
+          </div>
+          <div className="breathe__start">
+            <button onClick={this.toggleTime}><i className="small material-icons">spa</i><span>{this.state.active ? 'Stop' : 'Start'}</span></button>
+          </div>
+          <div className="breathe__center">
           <div className={this.isActive()}>
             <div className="breathe__counter"></div>
+          </div>
           </div>
         </div>
       </div>
