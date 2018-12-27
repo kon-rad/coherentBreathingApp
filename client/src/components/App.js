@@ -10,15 +10,9 @@ import RelevantLinks from './RelevantLinks';
 import { connect } from 'react-redux';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-
-  }
 
   render() {
-    const rootClass = this.props.app.darkTheme ? 'darkTheme' : '';
-    // const rootClass = 'darkTheme' ;
-    console.log('render App here. state: ', this.props);
+    const rootClass = this.props.darkTheme ? 'root dark-theme' : 'root normal-theme';
 
     return (
       <BrowserRouter>
@@ -38,8 +32,7 @@ class App extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log(state, 'state');
-  return { app: state.app };
+  return { darkTheme: state.app.darkTheme };
 }
 
 export default connect(mapStateToProps)(App);

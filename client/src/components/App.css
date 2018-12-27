@@ -1,4 +1,4 @@
-:root {
+.normal-theme {
     /* RGB */
     --color1: rgba(10, 72, 114, 1);
     --color2: rgba(201, 251, 255, 1);
@@ -6,9 +6,31 @@
     --color4: rgba(211, 208, 203, 1);
     --color5: rgba(226, 192, 68, 1);
     --color5-hover: #f9c506;
+    --color6-font: rgb(9, 9, 9);
+    --color6-font-ligth: rgb(254, 254, 254);
+    --color7: rgb(254, 254, 254);
+    --colorM1: #90CAF9;
+    --btn: #26a69a;
+}
+.dark-theme {
+    --color1: rgb(9, 40, 67);
+    --color2: rgb(58, 72, 75);
+    --color3: rgb(64, 69, 77);
+    --color4: rgb(71, 68, 66);
+    --color5: rgb(127, 106, 38);
+    --color5-hover: #755c04;
+    --color6-font: #909090;
+    --color6-font-light: #909090;
+    --color7: rgb(9, 9, 9);
+    --colorM1: #507c9c;
+    --color8-light: #5b5959;
+    --btn: #1e7e75;
 }
 #root {
     min-height: 100vh;
+}
+.root {
+    background: var(--color7);
 }
 .nav__logo a i {
     display: inline-block;
@@ -52,6 +74,7 @@
     margin: 60px auto 60px;
     text-align: center;
     font-size: 60px;
+    color: var(--color6-font);
 }
 .breathe__start i {
     margin-right: 10px;
@@ -62,6 +85,7 @@
     border-radius: 6px;
     padding: 10px 30px;
     background-color: var(--color2);
+    color: var(--color6-font);
     text-align: center;
     justify-content: center;
     font-size: 20px;
@@ -86,6 +110,19 @@
     background: var(--color5-hover);
 }
 
+.dark-theme input[type=range] {
+    border-color: var(--color8-light);
+}
+.btn {
+    background: var(--btn);
+    color: var(--color6-font-ligth);
+}
+nav, nav ul a, .white-text, .page-footer, .page-footer .footer-copyright, .grey-text.text-lighten-3 {
+    color: var(--color6-font-ligth)!important;
+}
+.blue.lighten-3 {
+    background-color: var(--colorM1) !important;
+}
 /*====================== MEDIA QUERIES ======================*/
 @media (max-width: 768px) {
     .breathe__time_render {
