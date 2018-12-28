@@ -25,6 +25,7 @@ class Breathe extends Component {
   }
 
   preSetTime(time) {
+    this.state.timerInterval && clearInterval(this.state.timerInterval);
     this.setState({
       timeSet: time,
       currentTime: time,
