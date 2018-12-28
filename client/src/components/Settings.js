@@ -5,7 +5,6 @@ import * as actions from '../actions';
 class Settings extends Component {
 
   render() {
-    console.log('Settings here: props: ', this.props);
     const themeBtnText = this.props.darkTheme ? 'Light Theme' : 'Dark Theme';
     return (
       <div className="col s6 offset-s3 settings__wrapper">

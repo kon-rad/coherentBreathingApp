@@ -13,7 +13,6 @@ import * as actions from '../actions';
 class App extends Component {
 
   componentDidMount() {
-    console.log('app props', this.props);
     this.props.fetchUser();
   }
   render() {
