@@ -11,6 +11,7 @@
     --color7: rgb(254, 254, 254);
     --colorM1: #90CAF9;
     --btn: #26a69a;
+    --btn-hover: #2bbbad;
 }
 .dark-theme {
     --color1: rgb(9, 40, 67);
@@ -25,8 +26,9 @@
     --colorM1: #507c9c;
     --color8-light: #5b5959;
     --btn: #1e7e75;
+    --btn-hover: #218376;
 }
-#root {
+.container__root {
     min-height: 100vh;
 }
 .root {
@@ -117,11 +119,19 @@
     background: var(--btn);
     color: var(--color6-font-ligth);
 }
+.btn:hover {
+    background: var(--btn-hover);
+}
 nav, nav ul a, .white-text, .page-footer, .page-footer .footer-copyright, .grey-text.text-lighten-3 {
     color: var(--color6-font-ligth)!important;
 }
 .blue.lighten-3 {
     background-color: var(--colorM1) !important;
+}
+.settings__wrapper {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 20px;
 }
 /*====================== MEDIA QUERIES ======================*/
 @media (max-width: 768px) {

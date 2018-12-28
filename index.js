@@ -1,8 +1,25 @@
 const express = require('express');
+const mongoose = require('mongoose');
+const keys = require('./config/keys');
+const passport = require('passport');
+const cookieSession = require('cookie-session');
+const bodyParser = require('body-parser');
 
 const app = express();
 
-require('./routes/breathRoutes')(app);
+app.use(bodyParser.json());
+app.use(
+    cookieSession({
+      keys: [keys.cookieKey],
+      maxAge: 30 * 24 * 60 * 60 * 1000 // thirty days
+  })
+);
+app.use(passport.initialize());
+app.use(passport.session());
+
+mongoose.connect(keys.mongoURI);
+
+require('./routes/authRoutes')(app);
 
 if (process.env.NODE_ENV === 'production') {
   // Express will serve up production assets
