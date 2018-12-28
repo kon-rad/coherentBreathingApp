@@ -21,8 +21,17 @@ class Breathe extends Component {
     this.startTimer = this.startTimer.bind(this);
     this.endTimer = this.endTimer.bind(this);
     this.tick = this.tick.bind(this);
+    this.preSetTime = this.preSetTime.bind(this);
   }
 
+  preSetTime(time) {
+    this.setState({
+      timeSet: time,
+      currentTime: time,
+      active: true,
+      timerInterval: setInterval(this.tick, TICK_INTERVAL)
+    })
+  }
   updateTime(e) {
     this.setState({ timeSet: e.target.value, currentTime: e.target.value });
   }
@@ -72,7 +81,7 @@ class Breathe extends Component {
     return (
       <div className="breathe__inner">
         <div className="row">
-          <Settings />
+          <Settings preSetTime={this.preSetTime} />
           <div className="breathe__time">
             {this.renderTime()}
           </div>

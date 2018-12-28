@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 class Header extends Component {
+
   renderContent() {
-    // switch (this.props.auth) {
-    //   case null:
-    //     return;
-    //   case undefined:
-    //     return <a href="/auth/google"><li>Login With Google</li></a>;
-    //   default:
-    //     return [
-    //       <li key="1">Settings</li>,
-    //       <li key="2"><a href="/api/logout">Logout</a></li>
-    //     ]
-    // }
+    switch (this.props.auth) {
+      case null:
+        return;
+      case false:
+        return <a href="/auth/google"><li>Login With Google</li></a>;
+      default:
+        return [
+          <li key="2"><a href="/api/logout">Logout</a></li>
+        ]
+    }
   }
 
   render () {
@@ -33,5 +34,8 @@ class Header extends Component {
     )
   }
 }
+function mapStateToProps({ auth }) {
+  return { auth: auth }
+}
 
-export default Header;
+export default connect(mapStateToProps)(Header);

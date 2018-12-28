@@ -8,9 +8,14 @@ import Breathe from './Breathe';
 import About from './About';
 import RelevantLinks from './RelevantLinks';
 import { connect } from 'react-redux';
+import * as actions from '../actions';
 
 class App extends Component {
 
+  componentDidMount() {
+    console.log('app props', this.props);
+    this.props.fetchUser();
+  }
   render() {
     const rootClass = this.props.darkTheme ? 'root dark-theme' : 'root normal-theme';
 
@@ -35,4 +40,4 @@ function mapStateToProps(state) {
   return { darkTheme: state.app.darkTheme };
 }
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, actions)(App);

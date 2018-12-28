@@ -10,9 +10,9 @@ class Settings extends Component {
     return (
       <div className="col s6 offset-s3 settings__wrapper">
         <a onClick={this.props.toggleTheme} className="waves-effect waves-light btn">{themeBtnText}</a>
-        <a onClick={() => this.props.preSetTime(1)} className="waves-effect waves-light btn">1 Minute</a>
-        <a onClick={() => this.props.preSetTime(5)} className="waves-effect waves-light btn">5 Minutes</a>
-        <a onClick={() => this.props.preSetTime(15)} className="waves-effect waves-light btn">15 Minutes</a>
+        <a onClick={() => this.props.preSetTime(60 * 1000)} className="waves-effect waves-light btn">1 Minute</a>
+        <a onClick={() => this.props.preSetTime(5 * 60 * 1000)} className="waves-effect waves-light btn">5 Minutes</a>
+        <a onClick={() => this.props.preSetTime(15 * 60 * 1000)} className="waves-effect waves-light btn">15 Minutes</a>
       </div>
     )
   }
