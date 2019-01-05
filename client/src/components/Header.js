@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 class Header extends Component {
 
   renderContent() {
+    console.log(this.props.auth);
     switch (this.props.auth) {
       case null:
         return;
@@ -11,7 +12,8 @@ class Header extends Component {
         return <a href="/auth/google"><li>Login With Google</li></a>;
       default:
         return [
-          <li key="2"><a href="/api/logout">Logout</a></li>
+          <li key="2"><a href="/api/logout">Logout</a></li>,
+          <li key="3"><a href="/"><img className="avatar" src={this.props.auth.avatar} alt={this.props.auth.username}/></a></li>
         ]
     }
   }
