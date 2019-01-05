@@ -23,18 +23,17 @@ passport.use(new GoogleStrategy({
     proxy: true
   },
   async (accessToken, refreshToken, profile, done) => {
+  console.log('heres passport strategy: profile =  ', profile);
     const existingUser = await User.findOne({ googleID: profile.id });
 
     if (existingUser) {
       return done(null, existingUser);
     }
 
-    const avatar = profile.photos.length > 0 ? profile.photos[0].value : '';
-
     const user = await new User({
       googleID: profile.id,
       username: profile.displayName,
-      avatar
+      avatar: profile.image.url
     }).save();
 
     done(null, user);
